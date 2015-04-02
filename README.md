@@ -10,6 +10,14 @@ Angular Grid was built for financial reporting applications. It supports large d
 
 Easy to use, quick to get going.
 
+
+
+###Building
+```sh
+$ npm install -g grunt-cli
+$ grunt build
+```
+
 Handling Large Data Sets
 ==============
 
