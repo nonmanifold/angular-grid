@@ -20,6 +20,14 @@ $ bower install ag-grid
 $ npm install angular-grid
 ```
 
+
+
+###Building
+```sh
+$ npm install -g grunt-cli
+$ grunt build
+```
+
 Handling Large Data Sets
 ==============
 
