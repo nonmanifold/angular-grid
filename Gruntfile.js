@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
@@ -8,6 +10,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
         requirejs: {
             compile: {
                 options: {
@@ -33,6 +36,12 @@ module.exports = function(grunt) {
                 }
             }
         },
+        copy: {
+            main: {
+                src: 'dist/<%= pkg.name %>.js',
+                dest: 'website/dist/angularGrid-latest.js'
+            }
+        },
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> v<%= pkg.version %>  Written by <%= pkg.author %>, <%= pkg.homepage %>  <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -44,9 +53,7 @@ module.exports = function(grunt) {
         }
     });
 
-
-
     // Default task(s).
-    grunt.registerTask('default', ['requirejs:compile', 'uglify']);
+    grunt.registerTask('default', ['requirejs:compile', 'uglify', 'copy']);
 
 };
